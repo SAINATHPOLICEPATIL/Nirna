@@ -1,0 +1,131 @@
+/*
+ * Design-system tokens for the shared building blocks (Typography, Button, IconButton,
+ * LinkButton, RichText). Adapted to NIRNA's palette.
+ *
+ * Only adds new names: it never redefines NIRNA's own tokens in globals.css (primary, accent,
+ * ink, border, font-sans, font-heading, …) or Tailwind's spacing scale.
+ *
+ *   brand-*  gold scale built around NIRNA accent (#e0a526 = brand-400, #c98f17 = brand-500)
+ *   grey-*   NIRNA neutrals (page #fbfaf6 = 50, border #e3e1da ≈ 200, ink-muted = 600, ink = 900)
+ *   error-*  neutral red scale
+ */
+@theme inline {
+  /* Brand (gold) */
+  --color-brand-50: oklch(0.98 0.02 80.79);
+  --color-brand-100: oklch(0.955 0.04 80.79);
+  --color-brand-200: oklch(0.905 0.075 80.79);
+  --color-brand-300: oklch(0.84 0.115 80.79);
+  --color-brand-400: oklch(0.7583 0.147 80.79);
+  --color-brand-500: oklch(0.6896 0.1382 78.51);
+  --color-brand-600: oklch(0.61 0.125 78.51);
+  --color-brand-700: oklch(0.53 0.105 78.51);
+  --color-brand-800: oklch(0.43 0.082 78.51);
+  --color-brand-900: oklch(0.26 0.045 78.51);
+
+  /* Grey (NIRNA neutrals: warm light end, green-charcoal dark end) */
+  --color-grey-50: oklch(0.9848 0.0054 95.1);
+  --color-grey-100: oklch(0.9698 0.0054 95.1);
+  --color-grey-200: oklch(0.9094 0.0097 93.58);
+  --color-grey-300: oklch(0.83 0.013 120);
+  --color-grey-400: oklch(0.7 0.018 140);
+  --color-grey-500: oklch(0.57 0.022 150);
+  --color-grey-600: oklch(0.4515 0.0247 156.1);
+  --color-grey-700: oklch(0.38 0.025 153);
+  --color-grey-800: oklch(0.32 0.026 152);
+  --color-grey-900: oklch(0.2695 0.0257 151.47);
+
+  /* Error */
+  --color-error-50: oklch(0.9741 0.0097 17.32);
+  --color-error-100: oklch(0.921 0.0276 17.66);
+  --color-error-200: oklch(0.8355 0.0602 18.43);
+  --color-error-300: oklch(0.7327 0.0989 19.72);
+  --color-error-400: oklch(0.6522 0.1225 20.97);
+  --color-error-500: oklch(0.6007 0.135 21.96);
+  --color-error-600: oklch(0.5151 0.1175 22.05);
+  --color-error-700: oklch(0.4312 0.095 21.84);
+  --color-error-800: oklch(0.3411 0.0727 21.63);
+  --color-error-900: oklch(0.2525 0.048 21.03);
+
+  /* Minimum touch target → `min-h-touch`, `h-touch`; buttons use it as their min height. */
+  --spacing-touch: 44px;
+
+  /* Body font for Typography's label/paragraph styles (headings use NIRNA's --font-heading). */
+  --font-body: var(--font-sans);
+
+  /* Type scale (fluid 380px → 1280px). Variants: d1–d5, h1–h5, s1–s3, l1–l8, p1. */
+  --text-d1: clamp(3.5rem, 2.8667rem + 2.6667vw, 5rem);
+  --text-d1--line-height: clamp(4rem, 3.3667rem + 2.6667vw, 5.5rem);
+  --text-d2: clamp(2.75rem, 2.4333rem + 1.3333vw, 3.5rem);
+  --text-d2--line-height: clamp(3.25rem, 2.9333rem + 1.3333vw, 4rem);
+  --text-d3: clamp(2.5rem, 2.1833rem + 1.3333vw, 3.25rem);
+  --text-d3--line-height: clamp(3rem, 2.6833rem + 1.3333vw, 3.75rem);
+  --text-d4: clamp(2.25rem, 1.9333rem + 1.3333vw, 3rem);
+  --text-d4--line-height: clamp(2.75rem, 2.4333rem + 1.3333vw, 3.5rem);
+  --text-d5: clamp(2rem, 1.6833rem + 1.3333vw, 2.75rem);
+  --text-d5--line-height: clamp(2.5rem, 2.1833rem + 1.3333vw, 3.25rem);
+
+  --text-h1: clamp(1.75rem, 1.5389rem + 0.8889vw, 2.25rem);
+  --text-h1--line-height: clamp(2.25rem, 2.0389rem + 0.8889vw, 2.75rem);
+  --text-h2: clamp(1.5rem, 1.2889rem + 0.8889vw, 2rem);
+  --text-h2--line-height: clamp(2rem, 1.7889rem + 0.8889vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 1.0917rem + 0.6667vw, 1.625rem);
+  --text-h3--line-height: clamp(1.75rem, 1.5917rem + 0.6667vw, 2.125rem);
+  --text-h4: clamp(1.125rem, 1.0194rem + 0.4444vw, 1.375rem);
+  --text-h4--line-height: clamp(1.625rem, 1.5194rem + 0.4444vw, 1.875rem);
+  --text-h5: clamp(1rem, 0.8944rem + 0.4444vw, 1.25rem);
+  --text-h5--line-height: clamp(1.5rem, 1.3944rem + 0.4444vw, 1.75rem);
+
+  --text-s1: clamp(1rem, 0.8944rem + 0.4444vw, 1.25rem);
+  --text-s1--line-height: clamp(1.5rem, 1.3944rem + 0.4444vw, 1.75rem);
+  --text-s2: clamp(1.25rem, 1.1444rem + 0.4444vw, 1.5rem);
+  --text-s2--line-height: clamp(1.75rem, 1.6444rem + 0.4444vw, 2rem);
+  --text-s3: clamp(0.875rem, 0.8222rem + 0.2222vw, 1rem);
+  --text-s3--line-height: clamp(1.25rem, 1.1444rem + 0.4444vw, 1.5rem);
+
+  --text-l1: 0.75rem;
+  --text-l1--line-height: 0.875rem;
+  --text-l2: clamp(0.75rem, 0.6276rem + 0.5155vw, 0.875rem);
+  --text-l2--line-height: clamp(0.875rem, 0.7526rem + 0.5155vw, 1rem);
+  --text-l3: clamp(0.75rem, 0.6276rem + 0.5155vw, 0.875rem);
+  --text-l3--line-height: clamp(0.875rem, 0.7526rem + 0.5155vw, 1rem);
+  --text-l4: clamp(0.875rem, 0.8222rem + 0.2222vw, 1rem);
+  --text-l4--line-height: clamp(1.125rem, 1.0722rem + 0.2222vw, 1.25rem);
+  --text-l5: clamp(0.875rem, 0.8222rem + 0.2222vw, 1rem);
+  --text-l5--line-height: clamp(1.375rem, 1.2694rem + 0.4444vw, 1.625rem);
+  --text-l6: clamp(0.9375rem, 0.8583rem + 0.3333vw, 1.125rem);
+  --text-l6--line-height: clamp(1.25rem, 1.1444rem + 0.4444vw, 1.5rem);
+  --text-l7: clamp(1rem, 0.8944rem + 0.4444vw, 1.25rem);
+  --text-l7--line-height: clamp(1.25rem, 1.1444rem + 0.4444vw, 1.5rem);
+  --text-l8: clamp(1.125rem, 1.0194rem + 0.4444vw, 1.375rem);
+  --text-l8--line-height: clamp(1.375rem, 1.2694rem + 0.4444vw, 1.625rem);
+
+  --text-p1: clamp(1rem, 0.9472rem + 0.2222vw, 1.125rem);
+  --text-p1--line-height: clamp(1.625rem, 1.5194rem + 0.4444vw, 1.875rem);
+}
+
+/* L3 grows again from 1024px (14px → 16px). */
+@media (min-width: 1024px) {
+  .text-l3 {
+    font-size: clamp(0.875rem, 0.375rem + 0.7812vw, 1rem);
+    line-height: clamp(1rem, 0.5rem + 0.7812vw, 1.125rem);
+  }
+}
+
+/* Shadows used by IconButton (hover/active). */
+@utility shadow-100 {
+  box-shadow:
+    0px 1px 2px rgba(17, 19, 24, 0.04),
+    0px 4px 4px rgba(17, 19, 24, 0.03),
+    0px 9px 6px rgba(17, 19, 24, 0.02),
+    0px 17px 7px rgba(17, 19, 24, 0.01),
+    0px 26px 7px rgba(17, 19, 24, 0);
+}
+
+@utility shadow-200 {
+  box-shadow:
+    0px 2px 5px rgba(42, 45, 55, 0.05),
+    0px 9px 9px rgba(42, 45, 55, 0.04),
+    0px 20px 12px rgba(42, 45, 55, 0.03),
+    0px 36px 14px rgba(42, 45, 55, 0.01),
+    0px 57px 16px rgba(42, 45, 55, 0);
+}

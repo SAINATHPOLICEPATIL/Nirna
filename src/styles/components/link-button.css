@@ -1,0 +1,66 @@
+/*
+ * ============================================
+ * LINK BUTTON
+ * ============================================
+ */
+
+@layer components {
+  /* ========================================
+   * BASE
+   * ======================================== */
+
+  .link-button {
+    @apply inline-flex items-center no-underline;
+    padding-block: calc(var(--spacing) * 3); /* 12px */
+    cursor: pointer;
+
+    &:hover:not([aria-disabled='true']),
+    &:active:not([aria-disabled='true']) {
+      text-decoration: underline;
+    }
+
+    &[aria-disabled='true'] {
+      cursor: not-allowed;
+    }
+  }
+
+  /* ========================================
+   * LIGHT THEME
+   * ======================================== */
+
+  .link-button-light {
+    color: var(--color-grey-900);
+
+    &:hover:not([aria-disabled='true']) {
+      color: var(--color-brand-600);
+    }
+
+    &:active:not([aria-disabled='true']) {
+      color: var(--color-brand-800);
+    }
+
+    &[aria-disabled='true'] {
+      color: var(--color-grey-300);
+    }
+  }
+
+  /* ========================================
+   * DARK THEME
+   * ======================================== */
+
+  .link-button-dark {
+    color: var(--color-grey-50);
+
+    &:hover:not([aria-disabled='true']) {
+      color: var(--color-brand-300);
+    }
+
+    &:active:not([aria-disabled='true']) {
+      color: var(--color-brand-600);
+    }
+
+    &[aria-disabled='true'] {
+      color: var(--color-grey-600);
+    }
+  }
+}

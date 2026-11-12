@@ -1,0 +1,136 @@
+/*
+ * ============================================
+ * ICON BUTTON STYLES
+ * ============================================
+ */
+@layer components {
+  /* ========================================
+   * BASE ICON BUTTON
+   * ======================================== */
+
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease;
+  }
+
+  .icon-btn:disabled {
+    cursor: not-allowed;
+  }
+
+  /* ========================================
+   * PRIMARY
+   * ======================================== */
+
+  .icon-btn-primary {
+    /* default styles */
+    border-color: var(--color-grey-300);
+    color: var(--color-grey-700);
+
+    &:hover:not(:disabled) {
+      background: var(--color-grey-50);
+      border-color: var(--color-grey-300);
+      color: var(--color-grey-700);
+    }
+
+    &:active:not(:disabled) {
+      background: var(--color-grey-100);
+      border-color: var(--color-grey-400);
+      color: var(--color-grey-700);
+    }
+
+    &:disabled {
+      background: var(--color-grey-50);
+      border-color: var(--color-grey-300);
+      color: var(--color-grey-400);
+    }
+  }
+
+  /* ========================================
+   * SECONDARY
+   * ======================================== */
+
+  .icon-btn-secondary {
+    /* default styles */
+    border-color: var(--color-brand-300);
+    color: var(--color-brand-600);
+
+    &:hover:not(:disabled) {
+      background: var(--color-brand-50);
+      border-color: var(--color-brand-300);
+      color: var(--color-brand-600);
+    }
+
+    &:active:not(:disabled) {
+      background: var(--color-brand-100);
+      border-color: var(--color-brand-400);
+      color: var(--color-brand-600);
+    }
+
+    &:disabled {
+      border-color: var(--color-brand-200);
+      color: var(--color-brand-300);
+    }
+  }
+
+  /* ========================================
+   * PRIMARY INVERSE
+   * ======================================== */
+
+  .icon-btn-primary-inverse {
+    /* default styles */
+    border-color: var(--color-grey-700);
+    color: var(--color-grey-200);
+
+    &:hover:not(:disabled) {
+      background: var(--color-grey-800);
+      border-color: var(--color-grey-700);
+      color: var(--color-grey-200);
+    }
+
+    &:active:not(:disabled) {
+      background: var(--color-grey-700);
+      border-color: var(--color-grey-600);
+      color: var(--color-grey-200);
+    }
+
+    &:disabled {
+      border-color: var(--color-grey-800);
+      color: var(--color-grey-600);
+    }
+  }
+
+  /* ========================================
+   * SECONDARY INVERSE
+   * ======================================== */
+
+  .icon-btn-secondary-inverse {
+    /* default styles */
+    border-color: var(--color-brand-800);
+    color: var(--color-brand-600);
+
+    &:hover:not(:disabled) {
+      background: var(--color-brand-900);
+      border-color: var(--color-brand-800);
+      color: var(--color-brand-600);
+    }
+
+    &:active:not(:disabled) {
+      background: var(--color-brand-800);
+      border-color: var(--color-brand-700);
+      color: var(--color-brand-600);
+    }
+
+    &:disabled {
+      border-color: var(--color-brand-900);
+      color: var(--color-brand-700);
+    }
+  }
+}

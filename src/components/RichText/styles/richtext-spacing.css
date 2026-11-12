@@ -1,0 +1,36 @@
+/* Display/Heading → Paragraph */
+.payload-richtext [data-variant^='h'] + [data-variant='p1'],
+.payload-richtext [data-variant^='d'] + [data-variant='p1'] {
+  margin-top: 24px; /* Small & Medium */
+}
+@media (min-width: 1024px) {
+  .payload-richtext [data-variant^='h'] + [data-variant='p1'],
+  .payload-richtext [data-variant^='d'] + [data-variant='p1'] {
+    margin-top: 32px; /* Large & Extra Large */
+  }
+}
+
+/* Paragraph → Paragraph */
+.payload-richtext [data-variant='p1'] + [data-variant='p1'] {
+  margin-top: 12px; /* fixed, all breakpoints */
+}
+
+/* Label → Label */
+.payload-richtext [data-variant^='l'] + [data-variant^='l'] {
+  margin-top: 12px; /* fixed, all breakpoints */
+}
+
+/* Label → Paragraph */
+.payload-richtext [data-variant^='l'] + [data-variant='p1'] {
+  margin-top: 8px; /* Small (mobile-first base) */
+}
+@media (min-width: 768px) {
+  .payload-richtext [data-variant^='l'] + [data-variant='p1'] {
+    margin-top: 12px; /* Medium */
+  }
+}
+@media (min-width: 1024px) {
+  .payload-richtext [data-variant^='l'] + [data-variant='p1'] {
+    margin-top: 16px; /* Large & Extra Large */
+  }
+}

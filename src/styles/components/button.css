@@ -1,0 +1,383 @@
+/*
+ * ============================================
+ * BUTTON STYLES
+ * ============================================
+ * Button component styles based on Figma specifications.
+ * Use with: <Button variant="filled" color="primary" size="md">
+ */
+
+@layer components {
+  /* ========================================
+   * BASE BUTTON
+   * ======================================== */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    /* Every button is at least a comfortable touch target, on every size. */
+    min-height: var(--spacing-touch);
+  }
+  .btn:focus-visible {
+    outline-offset: 4px;
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* ========================================
+   * FILLED BUTTONS
+ * ======================================== */
+
+  .btn-filled {
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  /* primary Filled */
+  .btn-filled-primary {
+    background: linear-gradient(to bottom, var(--color-brand-300), var(--color-brand-400));
+    border-color: var(--color-brand-400);
+    color: var(--color-grey-800);
+    &:hover:not(:disabled) {
+      background: var(--color-brand-400);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-brand-300);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-brand-200);
+    }
+    &:disabled {
+      background: var(--color-grey-100);
+      color: var(--color-grey-300);
+    }
+  }
+
+  /* ghost-white Filled */
+  .btn-filled-ghost-white {
+    background: linear-gradient(to bottom, var(--color-grey-100), var(--color-grey-200));
+    border-color: var(--color-grey-200);
+    color: var(--color-grey-900);
+    &:hover:not(:disabled) {
+      background: var(--color-grey-100);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-grey-200);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-grey-400);
+    }
+    &:disabled {
+      background: var(--color-grey-800);
+      color: var(--color-grey-500);
+    }
+  }
+
+  /* ghost-black Filled */
+  .btn-filled-ghost-black {
+    background: linear-gradient(to bottom, var(--color-grey-700), var(--color-grey-900));
+    border-color: var(--color-grey-700);
+    color: var(--color-grey-50);
+    &:hover:not(:disabled) {
+      background: var(--color-grey-700);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-grey-900);
+    }
+
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-grey-700);
+    }
+    &:disabled {
+      background: var(--color-grey-800);
+      color: var(--color-grey-500);
+    }
+  }
+
+  /* error Filled */
+  .btn-filled-error {
+    background: linear-gradient(to bottom, var(--color-error-500), var(--color-error-600));
+    border-color: var(--color-error-600);
+    color: var(--color-grey-50);
+    &:hover:not(:disabled) {
+      background: var(--color-error-500);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-error-600);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-error-200);
+    }
+    &:disabled {
+      background: var(--color-grey-100);
+      color: var(--color-grey-300);
+    }
+  }
+
+  /* ========================================
+     * OUTLINED BUTTONS
+     * ======================================== */
+  .btn-outlined {
+    background: transparent;
+    border: 1px solid;
+  }
+
+  /* primary Outlined */
+  .btn-outlined-primary {
+    border-color: var(--color-brand-400);
+    color: var(--color-brand-800);
+    &:hover:not(:disabled) {
+      background: var(--color-brand-100);
+      border-color: var(--color-brand-200);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-brand-200);
+      border-color: var(--color-brand-200);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-brand-200);
+    }
+    &:disabled {
+      border-color: var(--color-grey-100);
+      color: var(--color-grey-300);
+    }
+  }
+
+  /* ghost-white Outlined */
+  .btn-outlined-ghost-white {
+    border-color: var(--color-grey-600);
+    color: var(--color-grey-50);
+    &:hover:not(:disabled) {
+      background: var(--color-grey-800);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-grey-600);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-grey-400);
+    }
+    &:disabled {
+      border-color: var(--color-grey-700);
+      color: var(--color-grey-500);
+    }
+  }
+
+  /* ghost-black Outlined */
+  .btn-outlined-ghost-black {
+    border-color: var(--color-grey-600);
+    color: var(--color-grey-900);
+    &:hover:not(:disabled) {
+      background: var(--color-grey-300);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-grey-400);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-grey-700);
+    }
+    &:disabled {
+      border-color: var(--color-grey-700);
+      color: var(--color-grey-500);
+    }
+  }
+
+  /* error Outlined */
+  .btn-outlined-error {
+    border-color: var(--color-error-300);
+    color: var(--color-error-600);
+    &:hover:not(:disabled) {
+      background: var(--color-error-100);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-error-200);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-error-200);
+    }
+    &:disabled {
+      border-color: var(--color-grey-100);
+      color: var(--color-grey-300);
+    }
+  }
+
+  /* ========================================
+     * TONAL BUTTONS
+     * ======================================== */
+  .btn-tonal {
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  /* primary Tonal */
+  .btn-tonal-primary {
+    background: linear-gradient(to bottom, var(--color-brand-100), var(--color-brand-200));
+    border-color: var(--color-brand-200);
+    color: var(--color-brand-800);
+    &:hover:not(:disabled) {
+      background: var(--color-brand-100);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-brand-200);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-brand-200);
+    }
+    &:disabled {
+      border: none;
+      background: var(--color-grey-100);
+      color: var(--color-grey-300);
+    }
+  }
+
+  /* ghost-white Tonal */
+  .btn-tonal-ghost-white {
+    background: linear-gradient(to bottom, var(--color-grey-700), var(--color-grey-800));
+    border-color: var(--color-grey-700);
+    color: var(--color-grey-50);
+    &:hover:not(:disabled) {
+      background: var(--color-grey-700);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-grey-800);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-grey-400);
+    }
+    &:disabled {
+      border: none;
+      background: var(--color-grey-700);
+      color: var(--color-grey-500);
+    }
+  }
+
+  /* ghost-black Tonal */
+  .btn-tonal-ghost-black {
+    background: linear-gradient(to bottom, var(--color-grey-100), var(--color-grey-200));
+    border-color: var(--color-grey-200);
+    color: var(--color-grey-900);
+    &:hover:not(:disabled) {
+      background: var(--color-grey-100);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-grey-200);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-grey-400);
+    }
+    &:disabled {
+      border: none;
+      background: var(--color-grey-700);
+      color: var(--color-grey-500);
+    }
+  }
+
+  /* error Tonal */
+  .btn-tonal-error {
+    background: linear-gradient(to bottom, var(--color-error-50), var(--color-error-200));
+    border-color: var(--color-error-200);
+    color: var(--color-error-600);
+    &:hover:not(:disabled) {
+      background: var(--color-error-50);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-error-100);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-error-200);
+    }
+    &:disabled {
+      border: none;
+      background: var(--color-grey-100);
+      color: var(--color-grey-300);
+    }
+  }
+
+  /* ========================================
+     * TEXT BUTTONS
+     * ======================================== */
+  .btn-text {
+    background: transparent;
+    border: none;
+  }
+
+  /* primary Text */
+  .btn-text-primary {
+    color: var(--color-brand-800);
+    &:hover:not(:disabled) {
+      background: var(--color-brand-100);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-brand-200);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-brand-200);
+    }
+    &:disabled {
+      color: var(--color-grey-300);
+    }
+  }
+
+  /* ghost-white Text */
+  .btn-text-ghost-white {
+    color: var(--color-grey-50);
+    &:hover:not(:disabled) {
+      background: var(--color-grey-800);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-grey-600);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-grey-400);
+    }
+    &:disabled {
+      background: var(--color-grey-800);
+      color: var(--color-grey-500);
+    }
+  }
+
+  /* ghost-black Text */
+  .btn-text-ghost-black {
+    color: var(--color-grey-900);
+    &:hover:not(:disabled) {
+      background: var(--color-grey-300);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-grey-400);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-grey-700);
+    }
+    &:disabled {
+      color: var(--color-grey-500);
+    }
+  }
+
+  /* error Text */
+  .btn-text-error {
+    color: var(--color-error-600);
+    &:hover:not(:disabled) {
+      background: var(--color-error-100);
+    }
+    &:active:not(:disabled) {
+      background: var(--color-error-200);
+    }
+    &:focus-visible:not(:disabled) {
+      outline: 2px solid var(--color-error-300);
+    }
+    &:disabled {
+      color: var(--color-grey-300);
+    }
+  }
+}

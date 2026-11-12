@@ -1,0 +1,131 @@
+@import '../../styles/index.css';
+@import 'tailwindcss';
+
+/*
+ * NIRNA design tokens.
+ * Components should use these semantic tokens (e.g. bg-primary, text-ink) instead of raw colours.
+ */
+@theme {
+  /* Brand */
+  --color-primary: #1f5130; /* deep village green */
+  --color-primary-hover: #173e25;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #e0a526; /* warm yellow/gold */
+  --color-accent-hover: #c98f17;
+  --color-accent-foreground: #1d2a20;
+  --color-cream: #f8f3e6; /* light cream / off-white */
+  --color-primary-soft: #e7efe4; /* pale green wash for cards and map */
+  --color-leaf: #8fb07a; /* decorative leaf / illustration green */
+
+  /* Neutrals */
+  --color-surface: #ffffff;
+  --color-page: #fbfaf6; /* soft off-white page background */
+  --color-surface-muted: #f6f5f1;
+  --color-ink: #1d2a20; /* dark green/charcoal text */
+  --color-ink-muted: #4b5a50;
+  --color-border: #e3e1da;
+
+  /* Status */
+  --color-warning-bg: #fff4d6;
+  --color-warning-ink: #6b4a00;
+
+  /* Typography — set by next/font CSS variables in the locale layout */
+  --font-sans: var(--font-inter), var(--font-noto-kannada), ui-sans-serif, system-ui, sans-serif;
+  --font-kannada: var(--font-noto-kannada), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-noto-serif), var(--font-noto-serif-kannada), ui-serif, Georgia, serif;
+
+  /* Shape */
+  --radius-card: 0.75rem;
+  --shadow-card: 0 1px 2px rgb(29 42 32 / 0.06), 0 4px 16px rgb(29 42 32 / 0.06);
+}
+
+@layer base {
+  html {
+    color: var(--color-ink);
+    background-color: var(--color-surface);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Kannada script needs a Kannada-first font stack and a little more line height */
+  html[lang^='kn'] body {
+    font-family: var(--font-kannada);
+    line-height: 1.7;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+ * Village map (Leaflet). Pins are pure CSS teardrops coloured per category via --pin.
+ * ------------------------------------------------------------------------------------------- */
+.nirna-map {
+  font-family: var(--font-sans);
+  background: var(--color-primary-soft);
+}
+.nirna-pin-wrapper {
+  background: none;
+  border: 0;
+}
+.nirna-pin {
+  position: relative;
+  display: flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  background: var(--pin);
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.28);
+  transform: rotate(-45deg);
+  transition: transform 150ms ease;
+}
+.nirna-pin svg {
+  width: 17px;
+  height: 17px;
+  fill: #fff;
+  transform: rotate(45deg);
+}
+.nirna-pin.is-active,
+.nirna-pin-wrapper:hover .nirna-pin {
+  transform: rotate(-45deg) scale(1.15);
+}
+.nirna-pin-label {
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-ink);
+  text-shadow:
+    0 0 3px #fff,
+    0 0 6px #fff;
+}
+.nirna-popup .leaflet-popup-content-wrapper {
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgb(29 42 32 / 0.18);
+}
+.nirna-popup .leaflet-popup-content {
+  margin: 14px 16px;
+  min-width: 220px;
+  font-family: var(--font-sans);
+}
+.nirna-map .leaflet-control-zoom a {
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  font-size: 20px;
+  color: var(--color-ink);
+}
+.nirna-map .leaflet-bar {
+  border: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.15);
+}

@@ -1,0 +1,5 @@
+# pnpm 10+/11 settings (the "pnpm" field in package.json is no longer read)
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
